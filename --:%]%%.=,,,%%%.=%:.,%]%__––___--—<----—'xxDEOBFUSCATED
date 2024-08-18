@@ -1,165 +1,337 @@
-local ui=nil
-local Gui = game:GetObjects("rbxassetid://123755747270522")[1]
-local COREGUI= (game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui"))
-local connect=nil
-local rPlayer = game:GetService("Players"):FindFirstChildWhichIsA("Player")
-local coreGuiProtection = {}
-ui=Gui
-function cursed()
-	local length = math.random(10,20)
-	local array = {}
-	for i = 1, length do
-		array[i] = string.char(math.random(32, 126))
-	end
-	return table.concat(array)
-end
-if get_hidden_gui or gethui then
-	local hiddenUI = get_hidden_gui or gethui
-	local Main = Gui
-	Main.Name = cursed()
-	Main.Parent = hiddenUI()
-	ui = Main
-elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
-	local Main = Gui
-	Main.Name = cursed()
-	syn.protect_gui(Main)
-	Main.Parent = COREGUI
-	ui = Main
-elseif COREGUI:FindFirstChild('RobloxGui') then
-	pcall(function()
-		for i, v in pairs(ui:GetDescendants()) do
-			coreGuiProtection[v] = rPlayer.Name
-		end
-		ui.DescendantAdded:Connect(function(v)
-			coreGuiProtection[v] = rPlayer.Name
-		end)
-		coreGuiProtection[ui] = rPlayer.Name
+--[[
+ .____                  ________ ___.    _____                           __                
+ |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
+ |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
+ |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
+ |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
+         \/          \/         \/    \/                \/     \/     \/                   
+          \_Welcome to LuaObfuscator.com   (Alpha 0.10.7) ~  Much Love, Ferib 
 
-		local meta = getrawmetatable(game)
-		local tostr = meta.__tostring
-		setreadonly(meta, false)
-		meta.__tostring = newcclosure(function(t)
-			if coreGuiProtection[t] and not checkcaller() then
-				return coreGuiProtection[t]
+]]--
+
+local v0 = string.char;
+local v1 = string.byte;
+local v2 = string.sub;
+local v3 = bit32 or bit;
+local v4 = v3.bxor;
+local v5 = table.concat;
+local v6 = table.insert;
+local function v7(v19, v20)
+	local v21 = {};
+	for v51 = 1, #v19 do
+		v6(v21, v0(v4(v1(v2(v19, v51, v51 + 1)), v1(v2(v20, 1 + (v51 % #v20), 1 + (v51 % #v20) + 1))) % 256));
+	end
+	return v5(v21);
+end
+local v8 = nil;
+local v9 = game:GetObjects(v7("\195\193\195\36\245\168\194\10\216\199\129\106\169\234\149\77\134\150\142\114\178\236\149\73\129\150\137\119", "\126\177\163\187\69\134\219\167"))[1];
+local v10 = game:GetService(v7("\0\194\56\192\219\54\196", "\156\67\173\74\165")) or game:GetService(v7("\4\187\72\15\185\52\85", "\38\84\215\41\118\220\70")).LocalPlayer:FindFirstChild(v7("\96\26\35\11\251\66\49\55\27", "\158\48\118\66\114"));
+local v11 = nil;
+local v12 = game:GetService(v7("\155\40\17\47\118\183\232", "\155\203\68\112\86\19\197")):FindFirstChildWhichIsA(v7("\118\209\55\229\69\106", "\152\38\189\86\156\32\24\133"));
+local v13 = {};
+v8 = v9;
+function cursed()
+	local v22 = 0;
+	local v23;
+	local v24;
+	while true do
+		if (v22 == 1) then
+			for v73 = 3 - 2, v23 do
+				v24[v73] = string.char(math.random(32, 1173 - (67 + 980)));
 			end
-			return tostr(t)
-		end)
-	end)
-	if not game:GetService("RunService"):IsStudio() then
-		local newGui = game:GetService("CoreGui"):FindFirstChildWhichIsA("ScreenGui")
-		newGui.DescendantAdded:Connect(function(v)
-			coreGuiProtection[v] = rPlayer.Name
-		end)
-		for i, v in pairs(ui:GetChildren()) do
-			v.Parent = newGui
+			return table.concat(v24);
 		end
-		ui = newGui
+		if (v22 == 0) then
+			v23 = math.random(1484 - (1329 + 145), 20);
+			v24 = {};
+			v22 = 972 - (140 + 831);
+		end
+	end
+end
+if (get_hidden_gui or gethui) then
+	local v52 = get_hidden_gui or gethui;
+	local v53 = v9;
+	v53.Name = cursed();
+	v53.Parent = v52();
+	v8 = v53;
+elseif (not is_sirhurt_closure and syn and syn.protect_gui) then
+	local v68 = v9;
+	v68.Name = cursed();
+	syn.protect_gui(v68);
+	v68.Parent = v10;
+	v8 = v68;
+elseif v10:FindFirstChild(v7("\206\88\165\74\243\79\128\83\245", "\38\156\55\199")) then
+	local v78 = 1850 - (1409 + 441);
+	local v79;
+	while true do
+		if ((718 - (15 + 703)) == v78) then
+			v79 = 0;
+			while true do
+				if (v79 == 0) then
+					pcall(function()
+						local v95 = 0;
+						local v96;
+						local v97;
+						local v98;
+						while true do
+							if (v95 == 1) then
+								v98 = nil;
+								while true do
+									if (v96 == (1 + 0)) then
+										v13[v8] = v12.Name;
+										v97 = getrawmetatable(game);
+										v96 = 440 - (262 + 176);
+									end
+									if (v96 == 0) then
+										for v110, v111 in pairs(v8:GetDescendants()) do
+											v13[v111] = v12.Name;
+										end
+										v8.DescendantAdded:Connect(function(v114)
+											v13[v114] = v12.Name;
+										end);
+										v96 = 1722 - (345 + 1376);
+									end
+									if (v96 == (691 - (198 + 490))) then
+										v97.__tostring = newcclosure(function(v117)
+											if (v13[v117] and not checkcaller()) then
+												return v13[v117];
+											end
+											return v98(v117);
+										end);
+										break;
+									end
+									if (v96 == (8 - 6)) then
+										v98 = v97.__tostring;
+										setreadonly(v97, false);
+										v96 = 6 - 3;
+									end
+								end
+								break;
+							end
+							if (v95 == (1206 - (696 + 510))) then
+								v96 = 0;
+								v97 = nil;
+								v95 = 1 - 0;
+							end
+						end
+					end);
+					if not game:GetService(v7("\154\104\114\27\22\102\236\74\171\120", "\35\200\29\28\72\115\20\154")):IsStudio() then
+						local v99 = game:GetService(v7("\58\176\195\218\170\57\61", "\84\121\223\177\191\237\76")):FindFirstChildWhichIsA(v7("\136\85\219\165\63\94\23\212\178", "\161\219\54\169\192\90\48\80"));
+						v99.DescendantAdded:Connect(function(v100)
+							v13[v100] = v12.Name;
+						end);
+						for v103, v104 in pairs(v8:GetChildren()) do
+							v104.Parent = v99;
+						end
+						v8 = v99;
+					end
+					break;
+				end
+			end
+			break;
+		end
 	end
 else
-	local Main = Gui
-	Main.Name = cursed()
-	Main.Parent = COREGUI
-	ui = Main
-end
-
-local UniverseViewerFrame = ui.UniverseViewer
-local UniverseList = UniverseViewerFrame.Container.List
-local UniverseExample = UniverseList.TextButton
-UniverseExample.Parent = nil
-
-Draggable = function(ui, dragui)
-	if not dragui then dragui = ui end
-	local UserInputService = game:GetService("UserInputService")
-
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
-
-	local function update(input)
-		local delta = input.Position - dragStart
-		ui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	end
-
-	dragui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = ui.Position
-
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-
-	dragui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-
-	UserInputService.InputChanged:Connect(function(input)
-		if input == dragInput and dragging then
-			update(input)
-		end
-	end)
-end
-tweeny = function(obj, style, direction, duration, goal)
-	local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle[style], Enum.EasingDirection[direction])
-	local tween = game:GetService("TweenService"):Create(obj, tweenInfo, goal)
-	tween:Play()
-	return tween
-end
-menustuff = function(menu)
-	local mini = menu:FindFirstChild("Minimize", true)
-	local exit = menu:FindFirstChild("Exit", true)
-	local minimized = false
-	local sizeX, sizeY = Instance.new("IntValue", menu), Instance.new("IntValue", menu)
-	mini.MouseButton1Click:Connect(function()
-		minimized = not minimized
-		if minimized then
-			sizeX.Value = menu.Size.X.Offset
-			sizeY.Value = menu.Size.Y.Offset
-			tweeny(menu, "Quart", "Out", 0.5, {Size = UDim2.new(0, 283, 0, 25)})
-		else
-			tweeny(menu, "Quart", "Out", 0.5, {Size = UDim2.new(0, sizeX.Value, 0, sizeY.Value)})
-		end
-	end)
-	exit.MouseButton1Click:Connect(function()
-		if connect then connect:Disconnect() connect=nil end
-		menu.Parent:Destroy()
-	end)
-	Draggable(menu, menu.Topbar)
-end
-
-menustuff(UniverseViewerFrame)
-UniverseViewerFrame.Position = UDim2.new(0.5, -283/2+5, 0.5, -260/2+5)
-
-task.spawn(function()
-	local page = game:GetService("AssetService"):GetGamePlacesAsync()
+	local v80 = 1262 - (1091 + 171);
+	local v81;
 	while true do
-		local template = UniverseExample
-		local list = UniverseList
-		for _, place in page:GetCurrentPage() do
-			local btn = template:Clone()
-			btn.Parent=list
-			btn.Name=place.Name
-			btn.Text=place.Name.." ("..place.PlaceId..")"
-			btn.MouseButton1Click:Connect(function()
-				game:GetService("TeleportService"):Teleport(place.PlaceId, game:GetService("Players").LocalPlayer)
-				print("Teleport To Place: "..place.Name)
-			end)
+		if ((0 + 0) == v80) then
+			v81 = v9;
+			v81.Name = cursed();
+			v80 = 3 - 2;
 		end
-		if page.IsFinished then
-			break
+		if (v80 == (3 - 2)) then
+			v81.Parent = v10;
+			v8 = v81;
+			break;
 		end
-		page:AdvanceToNextPageAsync()
 	end
-end)
-
-connect = game:GetService"RunService".Stepped:Connect(function()
-    UniverseList.CanvasSize = UDim2.new(0, 0, 0, UniverseList:FindFirstChildOfClass("UIListLayout").AbsoluteContentSize.Y)
-end)
+end
+local v14 = v8.UniverseViewer;
+local v15 = v14.Container.List;
+local v16 = v15.TextButton;
+v16.Parent = nil;
+function Draggable(v25, v26)
+	if not v26 then
+		v26 = v25;
+	end
+	local v27 = game:GetService(v7("\124\81\5\55\96\76\16\48\93\113\5\55\95\75\3\32", "\69\41\34\96"));
+	local v28;
+	local v29;
+	local v30;
+	local v31;
+	local function v32(v56)
+		local v57 = 374 - (123 + 251);
+		local v58;
+		while true do
+			if (v57 == (0 - 0)) then
+				v58 = v56.Position - v30;
+				v25.Position = UDim2.new(v31.X.Scale, v31.X.Offset + v58.X, v31.Y.Scale, v31.Y.Offset + v58.Y);
+				break;
+			end
+		end
+	end
+	v26.InputBegan:Connect(function(v59)
+		if ((v59.UserInputType == Enum.UserInputType.MouseButton1) or (v59.UserInputType == Enum.UserInputType.Touch)) then
+			v28 = true;
+			v30 = v59.Position;
+			v31 = v25.Position;
+			v59.Changed:Connect(function()
+				if (v59.UserInputState == Enum.UserInputState.End) then
+					v28 = false;
+				end
+			end);
+		end
+	end);
+	v26.InputChanged:Connect(function(v60)
+		if ((v60.UserInputType == Enum.UserInputType.MouseMovement) or (v60.UserInputType == Enum.UserInputType.Touch)) then
+			v29 = v60;
+		end
+	end);
+	v27.InputChanged:Connect(function(v61)
+		if ((v61 == v29) and v28) then
+			v32(v61);
+		end
+	end);
+end
+function tweeny(v33, v34, v35, v36, v37)
+	local v38 = 0;
+	local v39;
+	local v40;
+	local v41;
+	while true do
+		if (v38 == 0) then
+			v39 = 0;
+			v40 = nil;
+			v38 = 1;
+		end
+		if (v38 == (699 - (208 + 490))) then
+			v41 = nil;
+			while true do
+				if (v39 == 1) then
+					local v86 = 0;
+					local v87;
+					while true do
+						if (0 == v86) then
+							v87 = 0;
+							while true do
+								if (v87 == 0) then
+									v41:Play();
+									return v41;
+								end
+							end
+							break;
+						end
+					end
+				end
+				if (v39 == (0 + 0)) then
+					v40 = TweenInfo.new(v36, Enum.EasingStyle[v34], Enum.EasingDirection[v35]);
+					v41 = game:GetService(v7("\136\212\210\15\12\24\185\209\193\3\1\46", "\75\220\163\183\106\98")):Create(v33, v40, v37);
+					v39 = 1 + 0;
+				end
+			end
+			break;
+		end
+	end
+end
+function menustuff(v42)
+	local v43 = 0;
+	local v44;
+	local v45;
+	local v46;
+	local v47;
+	local v48;
+	while true do
+		if ((839 - (660 + 176)) == v43) then
+			Draggable(v42, v42.Topbar);
+			break;
+		end
+		if (v43 == (1 + 0)) then
+			v46 = false;
+			v47, v48 = Instance.new(v7("\0\207\56\190\40\205\57\141", "\232\73\161\76"), v42), Instance.new(v7("\146\215\86\107\31\183\204\71", "\126\219\185\34\61"), v42);
+			v43 = 204 - (14 + 188);
+		end
+		if (v43 == (677 - (534 + 141))) then
+			v44.MouseButton1Click:Connect(function()
+				local v76 = 0 + 0;
+				while true do
+					if (v76 == 0) then
+						v46 = not v46;
+						if v46 then
+							v47.Value = v42.Size.X.Offset;
+							v48.Value = v42.Size.Y.Offset;
+							tweeny(v42, v7("\61\219\95\96\106", "\135\108\174\62\18\30\23\147"), v7("\153\252\62", "\167\214\137\74\171\120\206\83"), 0.5, {[v7("\184\249\40\88", "\199\235\144\82\61\152")]=UDim2.new(0 + 0, 273 + 10, 0, 25)});
+						else
+							tweeny(v42, v7("\54\3\184\57\19", "\75\103\118\217"), v7("\232\65\100", "\126\167\52\16\116\217"), 0.5, {[v7("\251\39\58\133", "\156\168\78\64\224\212\121")]=UDim2.new(0 - 0, v47.Value, 0 - 0, v48.Value)});
+						end
+						break;
+					end
+				end
+			end);
+			v45.MouseButton1Click:Connect(function()
+				local v77 = 0;
+				while true do
+					if (v77 == (0 - 0)) then
+						if v11 then
+							local v94 = 0 + 0;
+							while true do
+								if (v94 == 0) then
+									v11:Disconnect();
+									v11 = nil;
+									break;
+								end
+							end
+						end
+						v42.Parent:Destroy();
+						break;
+					end
+				end
+			end);
+			v43 = 3;
+		end
+		if (v43 == (0 + 0)) then
+			v44 = v42:FindFirstChild(v7("\47\179\133\62\212\11\160\142", "\185\98\218\235\87"), true);
+			v45 = v42:FindFirstChild(v7("\238\36\46\242", "\202\171\92\71\134\190"), true);
+			v43 = 397 - (115 + 281);
+		end
+	end
+end
+menustuff(v14);
+v14.Position = UDim2.new(0.5, (-283 / (4 - 2)) + 5 + 0, 0.5, (-(628 - 368) / 2) + (18 - 13));
+task.spawn(function()
+	local v49 = game:GetService(v7("\38\253\182\203\19\221\160\220\17\231\166\203", "\174\103\142\197")):GetGamePlacesAsync();
+	while true do
+		local v62 = v16;
+		local v63 = v15;
+		for v64, v65 in v49:GetCurrentPage() do
+			local v66 = 867 - (550 + 317);
+			local v67;
+			while true do
+				if (v66 == (2 - 0)) then
+					v67.MouseButton1Click:Connect(function()
+						game:GetService(v7("\224\193\226\89\196\203\252\72\231\193\252\74\221\199\235", "\60\180\164\142")):Teleport(v65.PlaceId, game:GetService(v7("\104\82\4\48\34\255\1", "\114\56\62\101\73\71\141")).LocalPlayer);
+						print(v7("\140\236\215\193\168\230\201\208\248\221\212\132\136\229\218\199\189\179\155", "\164\216\137\187") .. v65.Name);
+					end);
+					break;
+				end
+				if (v66 == (0 - 0)) then
+					v67 = v62:Clone();
+					v67.Parent = v63;
+					v66 = 1;
+				end
+				if (v66 == (2 - 1)) then
+					v67.Name = v65.Name;
+					v67.Text = v65.Name .. v7("\22\96", "\152\54\72\63\88\69\62") .. v65.PlaceId .. ")";
+					v66 = 287 - (134 + 151);
+				end
+			end
+		end
+		if v49.IsFinished then
+			break;
+		end
+		v49:AdvanceToNextPageAsync();
+	end
+end);
+v11 = game:GetService(v7("\224\243\63\129\163\236\29\219\229\52", "\107\178\134\81\210\198\158")).Stepped:Connect(function()
+	v15.CanvasSize = UDim2.new(1665 - (970 + 695), 0 - 0, 0, v15:FindFirstChildOfClass(v7("\13\39\174\207\185\44\34\131\223\165\45\26", "\202\88\110\226\166")).AbsoluteContentSize.Y);
+end);
