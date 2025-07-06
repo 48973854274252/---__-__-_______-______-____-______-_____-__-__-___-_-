@@ -220,7 +220,7 @@ getgenv().outlinecolor = Color3.new(94, 8, 8) --Change outline color, no need to
 getgenv().filltrans = 0.5 --Change fill transparency
 getgenv().outlinetrans = 0.5 --Change outline transparency
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/48973854274252/---__-__-_______-______-____-______-_____-__-__-___-_-/refs/heads/main/Settings/Lua/Esp.txt"))()
+loadstring(game:HttpGet("https://pastefy.app/Jct3RHcW/raw"))()
 end)
 
 if game.PlaceId == 3082002798 then
